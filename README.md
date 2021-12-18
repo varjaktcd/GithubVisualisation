@@ -2,7 +2,7 @@
 
 In powershell, run these on the directory of the code
 ```
- C:\PythonProjects\GithubVisualisation\venv\Scripts\python.exe -m pip install --upgrade pip
+CODE_DIRECTORY\venv\Scripts\python.exe -m pip install --upgrade pip
 ```
 
 ```
