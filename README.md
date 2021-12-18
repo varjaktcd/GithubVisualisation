@@ -12,7 +12,14 @@ docker compose build
 ```
 docker compose up
 ```
-Then run ```main.py``` to create the database.
+## Automatic Run
+Run the shell script ```run.sh``` to have the program automatically execute.
+
+This can be done with the command ```./run.h```.
+
+
+## Manual Run
+Run ```main.py``` to create the database.
 
 Run ```process.py``` to acess the database and process its data.
 
