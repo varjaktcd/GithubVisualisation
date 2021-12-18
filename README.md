@@ -12,5 +12,5 @@ docker compose build
 ```
 docker compose up
 ```
-
+Then run ```main.py```
 
