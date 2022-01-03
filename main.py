@@ -26,14 +26,13 @@ print(commits)  #values
 
 dct = {}
 
-for i in repos:
-    for j in commits:
-        dct[i] = j
-        commits.remove(j)
-        break
- #   dct = {'repo': repo.name,
-#               'commits': repo.get_commits().totalCount,
-#                 }
+#for i in repos:
+#    for j in commits:
+#        dct[i] = j
+#        commits.remove(j)
+#        break
+
+dct = dict(zip(repos, commits))
 
 print("dictionary: " + json.dumps(dct))
 
