@@ -10,39 +10,24 @@ token = Github(input)
 #get user from token
 user = token.get_user()
 
-#dictionary
-dct = {'user': user.login,
-       'fullname': user.name,
-       'location': user.location,
-       'company' : user.company
-}
 
-#store dct in mongodb
-
-#remove null fields. shouldnt include null fields in mongo db's
-
-#this should be in a unit test function
-for k,v in dict(dct).items():
-       if v is None:
-              del dct[k]
-
-print ("dictionary: " + json.dumps(dct))
+print("Showing data for " + user.login)
 
 #number of commits for a repo
 for repo in g.get_user().get_repos():
     print(repo.name, repo.get_commits().totalCount)
 
-    # dictionary
-    dct2 = {'repo': repo.name,
-           'commits': repo.get_commits().totalCount,
-           }
+# dictionary
+dct = {'repo': repo.name,
+       'commits': repo.get_commits().totalCount,
+       }
 
 #remove null fields here
 for i,j in dict(dct).items():
        if j is None:
-              del dct2[i]
+              del dct[i]
 
-print ("dictionary2: " + json.dumps(dct2))
+print("dictionary: " + json.dumps(dct))
 
 
 #establish connection
@@ -55,7 +40,5 @@ db = client.classDB
 
 db.githubuser.insert_many([dct])
 
-db2 = client.classDB
 
-db2.githubuser.insert_many([dct2])
 
