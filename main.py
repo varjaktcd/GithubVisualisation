@@ -17,7 +17,6 @@ dct = {'user': user.login,
        'company' : user.company
 }
 
-
 #store dct in mongodb
 
 #remove null fields. shouldnt include null fields in mongo db's
@@ -29,12 +28,34 @@ for k,v in dict(dct).items():
 
 print ("dictionary: " + json.dumps(dct))
 
+#number of commits for a repo
+for repo in g.get_user().get_repos():
+    print(repo.name, repo.get_commits().totalCount)
+
+    # dictionary
+    dct2 = {'repo': repo.name,
+           'commits': repo.get_commits().totalCount,
+           }
+
+#remove null fields here
+for i,j in dict(dct).items():
+       if j is None:
+              del dct2[i]
+
+print ("dictionary2: " + json.dumps(dct2))
+
+
 #establish connection
 conn ="mongodb://localhost:27017"
 #this port matches the one in docker-compose.yml
 client = pymongo.MongoClient(conn)
 
-#create database
+#create databases
 db = client.classDB
 
 db.githubuser.insert_many([dct])
+
+db2 = client.classDB
+
+db2.githubuser.insert_many([dct2])
+
