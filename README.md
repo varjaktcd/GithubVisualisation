@@ -28,3 +28,6 @@ Run ```cleardb.py``` if you wish to clear the database to try the program again.
 I've included shell scripts if you wish to use those. They can be run using:
 
 ```./shellscriptname.sh```
+
+Results of using my other github account (with more repos)
+![Figure_1](https://user-images.githubusercontent.com/90612189/147960846-c4900a4c-2827-4a09-8388-baf1514b3840.png)
