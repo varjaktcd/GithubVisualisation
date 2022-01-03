@@ -5,4 +5,6 @@ client = pymongo.MongoClient(conn)
 
 db = client.classDB
 
-db.githubuser.delete_many([])
+db.repos.delete_many({})
+
+

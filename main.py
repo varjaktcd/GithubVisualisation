@@ -20,23 +20,19 @@ for repo in user.get_repos('all'):
     repos.append(repo.name)
     commits.append(repo.get_commits().totalCount)
 
+#have it remove null cases
 
 print(repos) #keys
 print(commits)  #values
 
 dct = {}
 
-#for i in repos:
-#    for j in commits:
-#        dct[i] = j
-#        commits.remove(j)
-#        break
-
 dct = dict(zip(repos, commits))
 
 print("dictionary: " + json.dumps(dct))
 
 print("Establishing connection...")
+
 #establish connection
 conn ="mongodb://localhost:27017"
 #this port matches the one in docker-compose.yml
