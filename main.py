@@ -2,43 +2,52 @@ import json #for dict to string
 import pymongo
 from github import Github
 
-input = input("Please login by entering your Github access token:")
+g = Github()
 
-token = Github(input)
-#have the user enter their access token
+input = input("Please enter the Github user to view:")
 
-#get user from token
-user = token.get_user()
+#get user
+user = g.get_user(input)
+
+print("Getting public repos...")
+
+#number of commits per repo
+print("Creating dictionary...")
+repos =[]
+commits = []
+
+for repo in user.get_repos('all'):
+    repos.append(repo.name)
+    commits.append(repo.get_commits().totalCount)
 
 
-print("Showing data for " + user.login)
+print(repos) #keys
+print(commits)  #values
 
-#number of commits for a repo
-for repo in g.get_user().get_repos():
-    print(repo.name, repo.get_commits().totalCount)
+dct = {}
 
-# dictionary
-dct = {'repo': repo.name,
-       'commits': repo.get_commits().totalCount,
-       }
-
-#remove null fields here
-for i,j in dict(dct).items():
-       if j is None:
-              del dct[i]
+for i in repos:
+    for j in commits:
+        dct[i] = j
+        commits.remove(j)
+        break
+ #   dct = {'repo': repo.name,
+#               'commits': repo.get_commits().totalCount,
+#                 }
 
 print("dictionary: " + json.dumps(dct))
 
-
+print("Establishing connection...")
 #establish connection
 conn ="mongodb://localhost:27017"
 #this port matches the one in docker-compose.yml
 client = pymongo.MongoClient(conn)
 
+print("Creating database...")
 #create databases
 db = client.classDB
 
-db.githubuser.insert_many([dct])
+db.repos.insert_many([dct])
 
 
 
