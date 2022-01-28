@@ -31,3 +31,7 @@ I've included shell scripts if you wish to use those. They can be run using:
 
 Results of using my github account
 ![Figure_1](https://user-images.githubusercontent.com/90612189/147960846-c4900a4c-2827-4a09-8388-baf1514b3840.png)
+
+
+## Note
+This project was originally completed on another temporary GitHub account @varjaktcd because we were asked to make a new account, but I have sinced transferred ownership of the repo here to my main account @varjakw
