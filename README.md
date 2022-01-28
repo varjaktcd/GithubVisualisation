@@ -15,7 +15,7 @@ docker compose up
 ## Automatic Run
 Run the shell script ```run.sh``` to have the program automatically execute.
 
-This can be done with the command ```./run.h```.
+This can be done with the command ```./run.sh```.
 
 
 ## Manual Run
