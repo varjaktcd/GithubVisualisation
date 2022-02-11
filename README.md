@@ -35,3 +35,7 @@ Results of using my github account
 
 ## Note
 This project was originally completed on another temporary GitHub account @varjaktcd because we were asked to make a new account, but I have sinced transferred ownership of the repo here to my main account @varjakw
+
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
